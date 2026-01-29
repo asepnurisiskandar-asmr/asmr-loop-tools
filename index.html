@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ASMR Tool Kuyank</title>
+  <meta charset="UTF-8">
+  <title>ASMR Loop Tool by Kuyank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { background:#0b0b0b; color:#fff; font-family:Arial, sans-serif; text-align:center; padding:20px; }
+    h2 { margin-bottom:5px; }
+    input, button { padding:10px; margin:10px; border-radius:10px; border:none; }
+    button { background:#ff4d6d; color:white; font-weight:bold; }
+    video { width:100%; max-width:420px; border-radius:14px; margin-top:15px; }
+  </style>
 </head>
-<body style="background:black;color:white;text-align:center;padding:40px">
-  <h1>🔥 TOOLS ASMR KUYANK HIDUP 🔥</h1>
-  <p>Kalau ini muncul, berarti website berhasil.</p>
+<body>
+
+<h2>ASMR Loop Video Tool</h2>
+<p>Upload video → auto loop smooth</p>
+
+<input type="file" id="videoInput" accept="video/*"><br>
+<button onclick="playLoop()">Play Loop</button>
+
+<video id="video" controls loop></video>
+
+<script>
+function playLoop(){
+  const file = document.getElementById('videoInput').files[0];
+  if(!file){
+    alert("Upload video dulu kuy!");
+    return;
+  }
+  const video = document.getElementById('video');
+  video.src = URL.createObjectURL(file);
+  video.play();
+}
+</script>
+
 </body>
 </html>
